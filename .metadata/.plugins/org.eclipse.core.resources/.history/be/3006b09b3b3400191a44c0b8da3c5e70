@@ -1,0 +1,32 @@
+package com.it.service.Impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.it.mapper.readerMapper;
+import com.it.pojo.BookInfo;
+import com.it.pojo.Reader;
+
+@Service
+public class ReaderServiceImpl implements readerMapper{
+	@Autowired
+	private readerMapper readerMapper;
+	
+	/**
+	 * 根据账号密码登录
+	 */
+	@Override
+	public Reader selByusernamepwd(Reader reader) {
+		
+		return readerMapper.selByusernamepwd(reader);
+	}
+
+	@Override
+	public List<BookInfo> showBook() {
+		return readerMapper.showBook();
+	}
+	
+	
+}

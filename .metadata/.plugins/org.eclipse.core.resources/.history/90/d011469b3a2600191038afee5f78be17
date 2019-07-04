@@ -1,0 +1,19 @@
+package com.it.mapper;
+
+import com.it.pojo.Adminastrator;
+import com.it.pojo.BookInfo;
+
+public interface libraryMapper {
+	/**
+	 * 管理员登录
+	 * 通过用户名跟密码查询
+	 * @return
+	 */
+	Adminastrator selByUsernamePwd(Adminastrator adminastrator);
+	
+	/**
+	 * 查询全部图书信息
+	 * @return
+	 */
+	BookInfo selAll();
+}

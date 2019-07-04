@@ -1,0 +1,12 @@
+package com.it.service;
+
+import com.it.pojo.Reader;
+
+public interface ReaderService {
+	/**
+	 * 通过账号密码查询登录
+	 * @param reader
+	 * @return
+	 */
+	Reader selByusernamepwd(Reader reader);
+}

@@ -1,0 +1,20 @@
+package com.it.mapper;
+
+import java.util.List;
+
+import com.it.pojo.Reader;
+
+public interface readerMapper {
+	/**
+	 * 通过账号密码登录
+	 * @param reader
+	 * @return
+	 */
+	Reader selByusernamepwd(Reader reader);
+	
+	/**
+	 * 查看图书
+	 * @return
+	 */
+	List<Reader> showBook();
+}

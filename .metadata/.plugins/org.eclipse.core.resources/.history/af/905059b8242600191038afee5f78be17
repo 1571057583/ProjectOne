@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.it.mapper.libraryMapper">
+	
+	<!-- 用户名密码查询信息(登录) -->
+	<select id="selByUsernamePwd" resultType="com.it.pojo.Adminastrator" parameterType="map">
+			select * from Administrator where #{username} and #{password}
+	</select>
+
+	<!-- 查询全部图书信息 -->
+	<select id="selAll" resultType="com.it.pojo.BookInfo">
+			select * from bookinfo
+	</select>
+	
+</mapper>

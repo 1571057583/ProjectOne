@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.it.mapper.libraryMapper">
+	
+	<!-- 用户名密码查询信息(登录) -->
+	<select id="selByUsernamePwd" resultType="com.it.pojo.Adminastrator" parameterType="com.it.pojo.Adminastrator">
+			select * from Administrator where username=#{username} and password=#{password}
+	</select>
+
+	<!-- 查询全部图书信息 -->
+	<select id="selAll" resultType="com.it.pojo.BookInfo">
+			select * from bookinfo
+	</select>
+	
+	<!-- 通过Id更改书信息 -->
+	<update id="updById" >
+			update  bookinfo set bookName = #{bookName}, authorName = #{authorName}, publisherTime = #{publisherTime}, publisher=#{publisher},profession = #{profession},price = #{price} where id =#{id}
+	</update>
+	
+	<!-- 增加书籍 -->
+	<insert id="insBook">
+			insert into bookinfo values(default,#{bookName},#{authorName},#{publisherTime},#{publisher},#{profession},#{price});
+	</insert>
+	
+	<!-- 删除书籍 -->
+	<delete id="delBook">
+			delete from bookinfo where id = #{id} and bookName = #{bookName};
+	</delete>
+	
+	<!-- 查询管理员信息 -->
+	<select id="selPersonalByusername" resultType="com.it.pojo.Adminastrator" parameterType="com.it.pojo.Adminastrator">
+			select * from Administrator where username = #{username}
+	</select>
+	
+	<!-- 修改管理员信息 -->
+	<update id="updUser">
+			update administrator set name = #{name},username = #{username} ,password = #{password} where id = #{id}
+	</update>
+	
+	<!-- 查询读者信息 -->
+	<select id="selReader" resultType="com.it.pojo.Reader">
+			select * from reader
+	</select>
+	
+	<!-- 修改读者信息 -->
+	<update id="updByReaderId">
+			update reader set name = #{name}, username = #{username}, password = #{password} where id = #{id}
+	</update>
+	
+	<!-- 查询借还记录  -->
+	<select id="selborrowbook" resultType="com.it.pojo.BorrowBook" parameterType="com.it.pojo.BorrowBook">
+			select * from borrowrecord where studentname = #{studentname} and bookname = #{bookname} and state = #{state} or 1 = #{id}
+	</select>
+	
+	<!-- 借书 -->
+	<insert id="insBorrowBook" parameterType="com.it.pojo.BorrowBook">
+			insert into borrowrecord values(#{studentid},#{studentname},#{bookid},#{bookname},'已借');
+	</insert>
+	
+	<!-- 通过读者id查询已借书记录 -->
+	<select id="selBorrowBookById" parameterType="com.it.pojo.BorrowBook" resultType="com.it.pojo.BorrowBook">
+			select * from  borrowrecord where studentid = #{studentid} and state = '已借'
+	</select>
+	
+	<!--  还书-->
+	<update id="updReturnBook" parameterType="com.it.pojo.BorrowBook">
+			update borrowrecord set state = '已还' where bookid = #{bookid}
+	</update>
+	
+	<!--  读者登录-->
+	<select id="selByusernamepwd" parameterType="com.it.pojo.Reader" resultType="com.it.pojo.Reader">
+			select * from reader where username = #{username} and password = #{password}
+	</select>
+	
+	<!--  读者看全部图书-->
+	<select id="showall" resultType="com.it.pojo.BookInfo">
+			select * from bookinfo
+	</select>
+	<!--  查看图书借还记录-->
+	<select id="borrowBookByPerson" parameterType="com.it.pojo.Reader" resultType="com.it.pojo.BorrowBook">
+			select * from borrowrecord where studentname = #{studentname}
+	</select>
+	<!--  查看自己信息-->
+	<select id="showMe" parameterType="com.it.pojo.Reader" resultType="com.it.pojo.Reader">
+			select * from reader where username = #{username}
+	</select>
+</mapper>

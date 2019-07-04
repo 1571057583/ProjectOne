@@ -1,0 +1,144 @@
+package com;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
+
+import javax.enterprise.inject.New;
+
+import com.sun.mail.handlers.image_gif;
+
+public class test {
+
+	/**
+	 * @param args
+	 * @throws ClassNotFoundException 
+	 * @throws SQLException 
+	 * 
+	 */
+	static int a = 123;
+	//private final static String path = "C:/Users/Administrator/Desktop/a.txt";
+	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
+		
+		test t = new test();
+		t.s(a);
+		System.out.println(a);
+		 }
+
+	 public void s(int a){
+		 test.a=++a;
+		 }
+//		Child child = new Child(100,100);
+//		 child.increaseX(100);
+//		child.increaseY(100);
+		// System.out.println("x="+child.getX()+" and y="+child.getY()); 
+//		sss s = new sss();
+//		System.out.println(s.a(123888));
+//		System.out.println(s.b(127));
+		
+		
+		//io流输入输出文件
+//		BufferedWriter bw = null;
+//		FileWriter fw = null;
+//		fw = new FileWriter(path);
+//		bw = new BufferedWriter(fw);
+//		bw.append("2131fdsdfaf23");
+//		bw.flush();
+//		fw.close();
+//		bw.close();
+//		
+//		BufferedReader br = null;
+//		FileReader fr = null;
+//		fr = new FileReader(path);
+//		br = new BufferedReader(fr);
+//		String str = br.readLine();
+//		System.out.println(str);
+//		fr.close;
+//		br.close;
+		
+	
+		
+				
+		//连接数据库
+//		Connection conn  = null;
+//		PreparedStatement state = null;
+//		ResultSet set = null;
+//		Class.forName("com.mysql.jdbc.Driver");
+//		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/library","root","12345");
+//		String sql = "select * from bookinfo";
+//		state = conn.prepareStatement(sql);
+//		set = state.executeQuery();
+//		while(set.next()){
+//			System.out.println(set.getObject("id"));
+//		}
+//		
+	}
+	
+	
+
+
+
+class Parent{
+ private int x;
+ protected int y;
+ public Parent(int x, int y) {
+this.x = x;
+this.y = y;
+}
+ public void increaseX(int x){
+ this.x = getX()+x;
+ }
+public int getX(){
+ return x;
+ }
+ public void increaseY(int y){
+ this.y = getY()+y;
+ }
+ public int getY(){
+ return y;
+}
+}
+class Child extends Parent
+{
+private int x;
+ private int y;
+ public Child(int x, int y){
+ super(x, y);
+this.y = y+250;
+this.x = x+150;
+}
+ public int getX(){
+ return x;
+ }
+ public int getY(){
+ return y;
+} 
+}
+
+
+
+
+//class sss{
+//	Integer a(Integer i){
+//		return ++i;
+//		
+//	}
+//	int b(int i){
+//		return ++i;
+//	}
+//}
+	

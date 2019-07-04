@@ -1,0 +1,45 @@
+package com.it.Controller;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.it.pojo.BookInfo;
+import com.it.pojo.Reader;
+import com.it.service.ReaderService;
+
+@Controller
+public class ReaderController {
+	@Autowired
+	private ReaderService readerService;
+	/**
+	 * 登录
+	 * @param reader
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping("/selByusernamepwd")
+	public String selByusernamepwd(Reader reader ,HttpServletRequest req,HttpSession session){
+		reader.setUsername(req.getParameter("username")); 
+		reader.setPassword(req.getParameter("password"));
+		Reader selByusernamepwd = readerService.selByusernamepwd(reader);
+		session.setAttribute("name", selByusernamepwd.getName())
+		if(selByusernamepwd!=null){
+			return "/main/main.jsp";
+		}else{
+			return "/readerLogin.jsp";
+		}
+	}
+	@RequestMapping("/showbookInfo")
+	public String showBook(HttpServletRequest req){
+		List<BookInfo> showBook = readerService.showBook();
+		req.setAttribute("list", showBook);
+		return "/message/showbook.jsp";
+		
+	}
+}

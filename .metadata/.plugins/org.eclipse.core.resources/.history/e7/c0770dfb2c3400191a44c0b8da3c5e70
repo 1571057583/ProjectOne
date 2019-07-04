@@ -1,0 +1,24 @@
+package com.it.Controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.it.pojo.Reader;
+import com.it.service.ReaderService;
+
+@Controller
+public class ReaderController {
+	@Autowired
+	private ReaderService readerService;
+	
+	@RequestMapping("/selByusernamepwd")
+	public String selByusernamepwd(Reader reader ,HttpServletRequest req){
+		reader.setUsername(req.getParameter("username")); 
+		req.getParameter("password");
+		return null;
+		
+	}
+}

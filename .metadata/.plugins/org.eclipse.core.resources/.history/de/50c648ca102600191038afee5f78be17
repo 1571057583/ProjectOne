@@ -1,0 +1,11 @@
+package com.it.mapper;
+
+import java.util.List;
+
+import com.it.pojo.BookInfo;
+
+public interface libraryMapper {
+
+	
+	List<BookInfo>selAll();
+}

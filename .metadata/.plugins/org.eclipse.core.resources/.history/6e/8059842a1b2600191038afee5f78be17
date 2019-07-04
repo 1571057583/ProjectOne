@@ -1,0 +1,21 @@
+package com.it.service;
+
+import java.util.List;
+
+import com.it.pojo.Adminastrator;
+import com.it.pojo.BookInfo;
+
+public interface LibraryService {
+	
+	/**
+	 * 登录
+	 * @return
+	 */
+	List<Adminastrator>showByUserName();
+	
+	/**
+	 * 查询全部书籍信息
+	 * @return
+	 */
+	List<BookInfo> showAll();
+}

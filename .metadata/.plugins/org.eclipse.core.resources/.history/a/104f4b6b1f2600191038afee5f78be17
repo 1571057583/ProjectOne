@@ -1,0 +1,21 @@
+package com.it.pojo;
+/**
+ * 鍥句功淇℃伅瀹炰綋绫�
+ * @author Administrator
+ *
+ */
+public class BookInfo {
+	private int id;				//图书ID
+	private String bookName;    //书名
+	private String authorName;	//作者
+	private String publisherTime;	//出版时间
+	private String publisher;		//出版社
+	private String profession;	//专业
+	private int price;			//价格
+	
+	
+	public BookInfo() {
+		super();
+	}
+	
+}

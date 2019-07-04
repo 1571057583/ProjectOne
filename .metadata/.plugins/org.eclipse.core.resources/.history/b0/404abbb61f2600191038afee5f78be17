@@ -1,0 +1,32 @@
+package com.it.service.Impl;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import com.it.mapper.libraryMapper;
+import com.it.pojo.Adminastrator;
+import com.it.pojo.BookInfo;
+import com.it.service.LibraryService;
+@Service
+public class LibraryServiceImpl implements LibraryService{
+	@Resource	
+	private libraryMapper menuMapper;
+	
+	public List<BookInfo> showAll() {
+		
+		return menuMapper.selAll();
+	}
+
+	public List<Adminastrator> showByUserName(Adminastrator adminastrator) {
+		
+	
+		return menuMapper.selByUsernamePwd();
+	}
+
+
+	
+
+}

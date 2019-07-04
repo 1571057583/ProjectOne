@@ -1,0 +1,10 @@
+package com.it.service;
+
+import java.util.List;
+
+import com.it.pojo.BookInfo;
+
+public interface LibraryService {
+
+	List<BookInfo> showAll();
+}
